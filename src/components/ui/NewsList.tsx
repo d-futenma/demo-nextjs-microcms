@@ -56,14 +56,17 @@ export default function NewsList({ articles }: Props) {
                 )}
               </div>
             )}
+
             <div className="flex-1 pr-[calc(136/750*100vw)] max-md:relative md:pr-20">
               <div className="mb-[calc(48/750*100vw)] flex items-center gap-[calc(8/750*100vw)] md:mb-6 md:gap-4">
                 <Date date={article.publishedAt ?? article.createdAt} />
                 <Category category={article.category} />
               </div>
+
               <div className="text-[calc(26/750*100vw)] leading-loose tracking-[0.04em] text-black md:text-[max(calc(15/16*1rem),15px)]">
                 {article.title}
               </div>
+
               <div className="absolute top-0 right-0 bottom-0 my-auto size-[calc(100/750*100vw)] rounded-full bg-(--color-gray) max-md:translate-y-[calc(15/750*100vw)] md:size-15">
                 <span className="absolute inset-0 m-auto block h-[calc(20/750*100vw)] w-[calc(24/750*100vw)] overflow-hidden md:h-2.5 md:w-3">
                   <svg

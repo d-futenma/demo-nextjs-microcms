@@ -31,6 +31,7 @@ export default function Breadcrumb({ items }: Props) {
               </svg>
             </Link>
           </li>
+
           {items.map((item) =>
             item.href ? (
               <li

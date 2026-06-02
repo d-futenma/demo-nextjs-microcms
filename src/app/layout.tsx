@@ -7,7 +7,7 @@ import Footer from "@/components/layout/Footer";
 import "@/app/globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("http://localhost:3000"),
+  metadataBase: new URL("https://demo-nextjs-microcms-orcin.vercel.app/"),
   title: {
     template: "%s | FUTENMA STUDIO",
     default: "FUTENMA STUDIO",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     icon: "/assets/img/favicon/favicon.svg",
   },
   alternates: {
-    canonical: "http://localhost:3000",
+    canonical: "https://demo-nextjs-microcms-orcin.vercel.app/",
   },
 };
 

@@ -90,6 +90,7 @@ export default async function Page(props: Props) {
           </div>
         </Inner>
       </div>
+
       <Contact />
       <Breadcrumb items={breadcrumbItems} />
     </>

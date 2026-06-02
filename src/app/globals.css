@@ -12,6 +12,7 @@
 @custom-media --md-retina (width >=768px) and (-webkit-min-device-pixel-ratio: 2);
 
 @theme {
+  --animate-slide: slide 0.45s var(--ease-circ-in-out);
   --breakpoint-sm: 767px;
   --breakpoint-md: 768px;
   --breakpoint-lg: 1024px;
@@ -20,23 +21,15 @@
   --breakpoint-xxxl: 1921px;
   --color-black: #333333;
   --color-white: #ffffff;
-  --animate-slide: slide 0.45s var(--ease-circ-in-out);
 }
 
 :root {
-  --viewport-sm: 750;
-  --viewport-md: 1280;
-  --viewport-lg: 1024;
-  --viewport-xl: 1280;
-  --viewport-xxl: 1536;
-  --font-size-base: 16;
-  --font-size-max: calc(var(--font-size-base) / var(--viewport-md) * var(--viewport-xxl) * 1px);
+  --border-radius: 4px;
   --color-gray: #f3f3f3;
   --color-red: #f33;
   --color-border: #d4dfe3;
   --color-text-main: var(--color-black);
   --color-button-primary: #333;
-  --border-radius: 4px;
   --ease-sine-in: cubic-bezier(0.47, 0, 0.745, 0.715);
   --ease-sine-out: cubic-bezier(0.39, 0.575, 0.565, 1);
   --ease-sine-in-out: cubic-bezier(0.445, 0.05, 0.55, 0.95);
@@ -61,6 +54,13 @@
   --ease-back-in: cubic-bezier(0.6, -0.28, 0.735, 0.045);
   --ease-back-out: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   --ease-back-in-out: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --font-size-base: 16;
+  --font-size-max: calc(var(--font-size-base) / var(--viewport-md) * var(--viewport-xxl) * 1px);
+  --viewport-sm: 750;
+  --viewport-md: 1280;
+  --viewport-lg: 1024;
+  --viewport-xl: 1280;
+  --viewport-xxl: 1536;
 }
 
 @keyframes slide {
@@ -92,20 +92,10 @@ html {
 }
 
 body {
-  font-family: var(--font-noto-sans-jp), sans-serif;
   color: var(--color-text-main);
+  font-family: var(--font-noto-sans-jp), sans-serif;
 }
 
 .font-poppins {
   font-family: var(--font-poppins), sans-serif;
 }
-
-/* .inner {
-  margin-inline: auto;
-  width: calc(630/750*100vw);
-
-  @media (--md) {
-    max-width: 1344px;
-    width: calc(1344/1536*100%);
-  }
-} */

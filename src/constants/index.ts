@@ -2,35 +2,35 @@ export const home = {
   id: "home",
   nameEN: "Home",
   nameJA: "ホーム",
-  href: "/demo/nextjs-microcms",
+  href: "/",
 };
 
 export const about = {
   id: "about",
   nameEN: "ABOUT",
   nameJA: "私たちについて",
-  href: "/demo/nextjs-microcms/about",
+  href: "/about",
 };
 
 export const service = {
   id: "service",
   nameEN: "SERVICE",
   nameJA: "ホーム",
-  href: "/demo/nextjs-microcms/service",
+  href: "/service",
 };
 
 export const news = {
   id: "news",
   nameEN: "NEWS",
   nameJA: "ホーム",
-  href: "/demo/nextjs-microcms/news",
+  href: "/news",
 };
 
 export const contact = {
   id: "contact",
   nameEN: "CONTACT",
   nameJA: "ホーム",
-  href: "/demo/nextjs-microcms/contact",
+  href: "/contact",
 };
 
 export const navItems = [about, service, news, contact];

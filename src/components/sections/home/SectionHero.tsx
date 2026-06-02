@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { Link } from "react-scroll";
 import Inner from "@/components/ui/Inner";
-
 import heroImage from "@/assets/img/common/img-1.jpg";
 
 export default function Hero() {
@@ -18,6 +17,7 @@ export default function Hero() {
           priority
         />
       </div>
+
       <Inner className="relative z-1 flex h-full items-center text-white">
         <div className="md:pt-14">
           <p className="font-poppins text-[calc(68/750*100vw)] leading-[1.08] font-bold tracking-[0.02em] whitespace-nowrap md:text-[max(calc(76/16*1rem),76px)]">
@@ -29,6 +29,7 @@ export default function Hero() {
           </p>
         </div>
       </Inner>
+
       <div className="absolute right-[calc(52/750*100vw)] bottom-0 md:right-10">
         <Link
           className="group flex cursor-pointer flex-col items-center gap-[calc(20/750*100vw)] md:gap-2.5"

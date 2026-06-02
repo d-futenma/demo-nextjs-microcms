@@ -23,6 +23,7 @@ export default async function News() {
               </span>
             </h2>
           </div>
+
           <div className="flex-1">
             <NewsList articles={newsList} />
             <div className="mt-[calc(80/750*100vw)] flex justify-center md:mt-10 md:justify-end">

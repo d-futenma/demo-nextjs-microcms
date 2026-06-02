@@ -10,18 +10,30 @@ import Breadcrumb from "@/components/ui/Breadcrumb";
 
 type Props = {
   params: Promise<{
+    current: string;
     id: string;
   }>;
 };
 
 export default async function Page(props: Props) {
   const params = await props.params;
+  const current = parseInt(params.current, 10);
+
+  if (Number.isNaN(current) || current < 1) {
+    notFound();
+  }
+
   const category = await getCategoryDetail(params.id).catch(notFound);
 
   const { contents: newsList, totalCount } = await getNewsList({
-    limit: newsListLimit,
     filters: `category[equals]${category.id}`,
+    limit: newsListLimit,
+    offset: newsListLimit * (current - 1),
   });
+
+  if (newsList.length === 0) {
+    notFound();
+  }
 
   const breadcrumbItems = [{ label: "ニュース一覧" }];
 
@@ -34,13 +46,16 @@ export default async function Page(props: Props) {
               <Category category={category} /> の一覧
             </p>
           </div>
+
           <NewsList articles={newsList} />
           <Pagination
             totalCount={totalCount}
+            current={current}
             basePath={`${news.href}/category/${category.id}`}
           />
         </Inner>
       </div>
+
       <Contact />
       <Breadcrumb items={breadcrumbItems} />
     </>

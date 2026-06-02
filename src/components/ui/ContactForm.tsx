@@ -6,7 +6,7 @@ import { home } from "@/constants";
 import {
   createContactData,
   type ContactFormState,
-} from "@/app/demo/nextjs-microcms/actions/contact";
+} from "@/app/actions/contact";
 import ButtonPrimary from "@/components/ui/ButtonPrimary";
 import ContactFormRequired from "@/components/ui/ContactFormRequired";
 
@@ -52,6 +52,7 @@ export default function ContactForm() {
         <br />
         内容確認後、担当者より通常3営業日以内にご連絡いたします。
       </p>
+
       <form
         className="mx-auto max-w-200"
         action={formAction}
@@ -73,6 +74,7 @@ export default function ContactForm() {
             defaultValue={state.values.name}
           />
         </div>
+
         <div className="my-[calc(72/750*100vw)] flex flex-col md:my-9">
           <label
             className="mb-[calc(32/750*100vw)] flex items-center text-[calc(26/750*100vw)] md:mb-4 md:text-[max(calc(15/16*1rem),15px)]"
@@ -89,6 +91,7 @@ export default function ContactForm() {
             defaultValue={state.values.company}
           />
         </div>
+
         <div className="my-[calc(72/750*100vw)] flex flex-col md:my-9">
           <label
             className="mb-[calc(32/750*100vw)] flex items-center text-[calc(26/750*100vw)] md:mb-4 md:text-[max(calc(15/16*1rem),15px)]"
@@ -105,6 +108,7 @@ export default function ContactForm() {
             defaultValue={state.values.email}
           />
         </div>
+
         <div className="my-[calc(72/750*100vw)] flex flex-col md:my-9">
           <label
             className="mb-[calc(32/750*100vw)] flex items-center text-[calc(26/750*100vw)] md:mb-4 md:text-[max(calc(15/16*1rem),15px)]"
@@ -120,11 +124,13 @@ export default function ContactForm() {
             defaultValue={state.values.message}
           />
         </div>
+
         {state.status === "error" && (
           <p className="mt-[calc(80/750*100vw)] text-center text-(--color-red) md:mt-10">
             {state.message}
           </p>
         )}
+
         <div className="mt-[calc(80/750*100vw)] md:mt-10">
           <input
             type="submit"

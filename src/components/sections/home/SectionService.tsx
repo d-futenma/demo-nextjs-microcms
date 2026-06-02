@@ -51,9 +51,11 @@ export default function SectionService() {
             私たちにできること
           </span>
         </h2>
+
         <p className="text-[calc(26/750*100vw)] leading-loose md:text-[max(calc(15/16*1rem),15px)]">
           戦略設計からクリエイティブ制作まで､一貫したデザインパートナーとして支援します。
         </p>
+
         <div className="mt-[calc(88/750*100vw)] grid grid-cols-1 gap-x-10 gap-y-[calc(160/750*100vw)] md:mt-11 md:grid-cols-2 md:gap-y-20 lg:grid-cols-4">
           {services.map((service) => (
             <div key={service.id}>

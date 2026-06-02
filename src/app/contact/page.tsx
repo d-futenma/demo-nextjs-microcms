@@ -12,6 +12,7 @@ export default function Page() {
           <ContactForm />
         </Inner>
       </div>
+
       <Breadcrumb items={breadcrumbItems} />
     </>
   );
