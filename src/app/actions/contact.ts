@@ -80,16 +80,10 @@ export async function createContactData(
     },
   );
 
-  const responseText = await result.text();
-
-  console.log("HubSpot contact form response:", {
-    status: result.status,
-    statusText: result.statusText,
-    ok: result.ok,
-    body: responseText,
-  });
-
-  if (!result.ok) {
+  try {
+    await result.json();
+  } catch (e) {
+    console.log(e);
     return {
       status: "error",
       message: "お問い合わせの送信に失敗しました",
