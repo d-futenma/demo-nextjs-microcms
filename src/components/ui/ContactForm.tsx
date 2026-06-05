@@ -1,10 +1,17 @@
 "use client";
 
-import { useActionState, useEffect } from "react";
+import { type ChangeEvent, useActionState, useEffect, useState } from "react";
 import { home } from "@/constants";
 import { createContactData } from "@/app/actions/contact";
 import ButtonPrimary from "@/components/ui/ButtonPrimary";
 import ContactFormRequired from "@/components/ui/ContactFormRequired";
+
+const initialValues = {
+  fullname: "",
+  company: "",
+  email: "",
+  message: "",
+};
 
 const initialState = {
   status: "",
@@ -13,6 +20,16 @@ const initialState = {
 
 export default function ContactForm() {
   const [state, formAction] = useActionState(createContactData, initialState);
+  const [values, setValues] = useState(initialValues);
+
+  const handleChange = (
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    setValues((currentValues) => ({
+      ...currentValues,
+      [event.target.name]: event.target.value,
+    }));
+  };
 
   useEffect(() => {
     if (state.status !== "success") return;
@@ -60,6 +77,8 @@ export default function ContactForm() {
             className="w-full rounded border border-(--color-border) p-[calc(24/750*100vw)] leading-normal md:p-3"
             type="text"
             name="fullname"
+            value={values.fullname}
+            onChange={handleChange}
           />
         </div>
 
@@ -75,6 +94,8 @@ export default function ContactForm() {
             className="w-full rounded border border-(--color-border) p-[calc(24/750*100vw)] leading-normal md:p-3"
             type="text"
             name="company"
+            value={values.company}
+            onChange={handleChange}
           />
         </div>
 
@@ -91,6 +112,8 @@ export default function ContactForm() {
             className="w-full rounded border border-(--color-border) p-[calc(24/750*100vw)] leading-normal md:p-3"
             type="text"
             name="email"
+            value={values.email}
+            onChange={handleChange}
           />
         </div>
 
@@ -106,6 +129,8 @@ export default function ContactForm() {
             id="message"
             className="h-62.5 w-full rounded border border-(--color-border) p-[calc(24/750*100vw)] leading-normal md:p-3"
             name="message"
+            value={values.message}
+            onChange={handleChange}
           />
         </div>
 
