@@ -9,6 +9,7 @@ export function useOverscrollController(
   useEffect(() => {
     const scrollContainer = scrollContainerRef.current;
     const scrollContent = scrollContentRef.current;
+
     if (!scrollContainer || !scrollContent) return;
 
     const setupStyle = () => {

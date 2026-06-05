@@ -11,3 +11,4 @@ Next.js、microCMS の連携を試すために制作した、架空のブラン�
 - TypeScript
 - Tailwind CSS
 - microCMS
+- HubSpot

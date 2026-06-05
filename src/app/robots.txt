@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://demo-nextjs-microcms-orcin.vercel.app/sitemap.xml

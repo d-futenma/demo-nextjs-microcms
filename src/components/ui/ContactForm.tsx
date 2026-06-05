@@ -1,31 +1,24 @@
 "use client";
 
-import { useActionState } from "react";
-import { sendGAEvent } from "@next/third-parties/google";
+import { useActionState, useEffect } from "react";
 import { home } from "@/constants";
-import {
-  createContactData,
-  type ContactFormState,
-} from "@/app/actions/contact";
+import { createContactData } from "@/app/actions/contact";
 import ButtonPrimary from "@/components/ui/ButtonPrimary";
 import ContactFormRequired from "@/components/ui/ContactFormRequired";
 
-const initialState: ContactFormState = {
+const initialState = {
   status: "",
   message: "",
-  values: {
-    name: "",
-    company: "",
-    email: "",
-    message: "",
-  },
 };
 
 export default function ContactForm() {
   const [state, formAction] = useActionState(createContactData, initialState);
-  const handleSubmit = () => {
-    sendGAEvent({ event: "contact", value: "submit" });
-  };
+
+  useEffect(() => {
+    if (state.status !== "success") return;
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [state.status]);
+
   if (state.status === "success") {
     return (
       <>
@@ -53,25 +46,20 @@ export default function ContactForm() {
         内容確認後、担当者より通常3営業日以内にご連絡いたします。
       </p>
 
-      <form
-        className="mx-auto max-w-200"
-        action={formAction}
-        onSubmit={handleSubmit}
-      >
+      <form className="mx-auto max-w-200" action={formAction}>
         <div className="my-[calc(72/750*100vw)] flex flex-col md:my-9">
           <label
             className="mb-[calc(32/750*100vw)] flex items-center text-[calc(26/750*100vw)] md:mb-4 md:text-[max(calc(15/16*1rem),15px)]"
-            htmlFor="name"
+            htmlFor="fullname"
           >
             お名前
             <ContactFormRequired />
           </label>
           <input
-            id="name"
+            id="fullname"
             className="w-full rounded border border-(--color-border) p-[calc(24/750*100vw)] leading-normal md:p-3"
             type="text"
-            name="name"
-            defaultValue={state.values.name}
+            name="fullname"
           />
         </div>
 
@@ -81,14 +69,12 @@ export default function ContactForm() {
             htmlFor="company"
           >
             会社名
-            <ContactFormRequired />
           </label>
           <input
             id="company"
             className="w-full rounded border border-(--color-border) p-[calc(24/750*100vw)] leading-normal md:p-3"
             type="text"
             name="company"
-            defaultValue={state.values.company}
           />
         </div>
 
@@ -105,7 +91,6 @@ export default function ContactForm() {
             className="w-full rounded border border-(--color-border) p-[calc(24/750*100vw)] leading-normal md:p-3"
             type="text"
             name="email"
-            defaultValue={state.values.email}
           />
         </div>
 
@@ -121,7 +106,6 @@ export default function ContactForm() {
             id="message"
             className="h-62.5 w-full rounded border border-(--color-border) p-[calc(24/750*100vw)] leading-normal md:p-3"
             name="message"
-            defaultValue={state.values.message}
           />
         </div>
 

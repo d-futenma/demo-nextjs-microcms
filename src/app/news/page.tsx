@@ -21,7 +21,6 @@ export default async function Page() {
           <div className="mb-[calc(80/750*100vw)] md:mb-12">
             <SearchField />
           </div>
-
           <NewsList articles={newsList} />
           <Pagination totalCount={totalCount} />
         </Inner>

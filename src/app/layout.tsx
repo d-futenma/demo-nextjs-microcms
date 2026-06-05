@@ -22,6 +22,14 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://demo-nextjs-microcms-orcin.vercel.app/",
   },
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
+  },
 };
 
 const notoSansJP = Noto_Sans_JP({

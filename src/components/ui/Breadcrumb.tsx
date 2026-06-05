@@ -18,14 +18,14 @@ export default function Breadcrumb({ items }: Props) {
         <ul className="gap-x-[calc(45/750*100vw)] md:gap-x-7">
           <li className="mr-[calc(45/750*100vw)] inline-block text-[calc(26/750*100vw)] text-black md:mr-7 md:text-[max(calc(12/16*1rem),12px)]">
             <Link
-              href={home.href}
               className="relative pr-[calc(72/750*100vw)] underline md:pr-9"
+              href={home.href}
             >
               <span className="breadcrumb-item-label">ホーム</span>
               <svg
+                className="absolute top-0 right-0 bottom-0 my-auto h-[calc(20/750*100vw)] w-[calc(24/750*100vw)] fill-black md:h-3 md:w-1.75"
                 role="img"
                 aria-hidden="true"
-                className="absolute top-0 right-0 bottom-0 my-auto h-[calc(20/750*100vw)] w-[calc(24/750*100vw)] fill-black md:h-3 md:w-1.75"
               >
                 <use href="#icon-arrow-2"></use>
               </svg>
@@ -39,14 +39,14 @@ export default function Breadcrumb({ items }: Props) {
                 className="mr-[calc(45/750*100vw)] inline-block text-[calc(26/750*100vw)] text-black md:mr-7 md:text-[max(calc(12/16*1rem),12px)]"
               >
                 <Link
-                  href={item.href}
                   className="relative pr-[calc(72/750*100vw)] underline md:pr-9"
+                  href={item.href}
                 >
                   <span className="breadcrumb-item-label">{item.label}</span>
                   <svg
+                    className="absolute top-0 right-0 bottom-0 my-auto h-[calc(20/750*100vw)] w-[calc(24/750*100vw)] fill-black md:h-3 md:w-1.75"
                     role="img"
                     aria-hidden="true"
-                    className="absolute top-0 right-0 bottom-0 my-auto h-[calc(20/750*100vw)] w-[calc(24/750*100vw)] fill-black md:h-3 md:w-1.75"
                   >
                     <use href="#icon-arrow-2"></use>
                   </svg>
